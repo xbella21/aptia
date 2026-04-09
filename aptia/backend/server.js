@@ -1,4 +1,6 @@
 require('dotenv').config();
+const mongoose = require('mongoose');
+mongoose.set('debug', true);
 const express        = require('express');
 const cors           = require('cors');
 const connectDB      = require('./src/config/db');
