@@ -1,6 +1,5 @@
 const IcfesScore       = require('../icfes/IcfesScore.model');
-const AcademicProgram  = require('../admin/AcademicProgram.model');
-const VocationalProfile = require('../psychometric/VocationalProfile.model');
+const AcademicProgram = require('../admin/AcademicProgrma.model');const VocationalProfile = require('../psychometric/VocationalProfile.model');
 const AdmissionRanking = require('./AdmissionRanking.model');
 
 const calculateWeighted = (scores, weights) => (
