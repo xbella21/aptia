@@ -1,4 +1,7 @@
 require('dotenv').config();
+process.env.JWT_SECRET     = process.env.JWT_SECRET     || 'test_secret_key_256bits';
+process.env.JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '8h';
+
 const request  = require('supertest');
 const mongoose = require('mongoose');
 const app      = require('../../server');
@@ -23,6 +26,7 @@ describe('Auth API - Integration Tests', () => {
 
   it('POST /api/auth/register → 201 y retorna token', async () => {
     const res = await request(app).post('/api/auth/register').send(user);
+    console.log('BODY:', JSON.stringify(res.body));
     expect(res.statusCode).toBe(201);
     expect(res.body.success).toBe(true);
     expect(res.body.data).toHaveProperty('token');
